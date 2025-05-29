@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unhinged</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="icon" type="image/png" href="/miku.png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    .top-center {
+      padding: 20px;
+      font-size: 48px;
+      font-weight: bold;
+    }
+    .discord {
+      font-size: 18px;
+      color: #aaa;
+      margin-top: -10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-center">Unhinged</div>
+  <a href="https://discord.gg/suicides" class="discord" target="_blank">.gg/suicides</a>
+  <div class="quotes">
+    <div class="quote-box"><img src="" alt=""></div>
+    <div class="quote-box"><img src="" alt=""></div>
+    <div class="quote-box"><img src="" alt=""></div>
+  </div>
+  <script>
+    const totalImages = 163;
+    const imageBoxes = document.querySelectorAll('.quote-box img');
+    function getRandomImagePath(){
+        const index = Math.floor(Math.random() * totalImages) + 1;
+        return `quotes/${index}.png`;
+    }
+    function updateImage(img) {
+        const newSrc = getRandomImagePath();
+        img.style.opacity = 0;
+        setTimeout(() => {
+            img.src = newSrc;
+            img.onload = () => img.style.opacity = 1;
+        }, 300);
+    }
+    imageBoxes.forEach(img => {
+        img.src = getRandomImagePath();
+        img.style.opacity = 1;
+        setInterval(() => updateImage(img), 3000)
+    });
+  </script>
+</body>
+</html>
