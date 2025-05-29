@@ -67,3 +67,10 @@ body {
     transform: scale(1.1);
     box-shadow: 0 0 50px rgb(255, 255, 255);
 }
+
+
+
+img, p, h1, h2 {
+  max-width: 100%;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+}
